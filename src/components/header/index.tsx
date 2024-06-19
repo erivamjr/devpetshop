@@ -15,7 +15,7 @@ export function Header() {
         <li>SERVIÇOS</li>
         <li>LOJA</li>
       </ul>
-      <nav className="flex gap-1 text-gray">
+      <nav className="flex gap-2 text-gray">
         <Link to="/">
           <MagnifyingGlass size={28} />
         </Link>

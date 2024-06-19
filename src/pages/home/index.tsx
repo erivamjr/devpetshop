@@ -1,9 +1,11 @@
-import { Banner } from "./banner";
+import { Banner } from "./components/banner";
+import { Services } from "./components/services";
 
 export function Home() {
   return (
-    <div>
+    <main>
       <Banner />
-    </div>
+      <Services />
+    </main>
   );
 }

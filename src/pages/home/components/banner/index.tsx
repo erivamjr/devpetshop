@@ -1,4 +1,4 @@
-import imgDog from "../../../assets/dog.png";
+import imgDog from "../../../../assets/dog.png";
 export function Banner() {
   return (
     <section className="flex w-full max-w-7xl flex-col sm:flex-row bg-green m-auto max-h-[600px] text-center">
