@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        dogFootprint: "url('./src/assets/dogFootprint.png')",
+      },
+    },
     colors: {
       blue: "#6EC1E4",
       green: "#A8E6CF",
