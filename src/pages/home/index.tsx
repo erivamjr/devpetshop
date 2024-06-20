@@ -1,3 +1,4 @@
+import { About } from "./components/about";
 import { Banner } from "./components/banner";
 import { Services } from "./components/services";
 import { Store } from "./components/store";
@@ -8,6 +9,7 @@ export function Home() {
       <Banner />
       <Services />
       <Store />
+      <About />
     </main>
   );
 }
