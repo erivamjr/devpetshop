@@ -4,7 +4,7 @@ import { Handbag, Heart, MagnifyingGlass } from "@phosphor-icons/react";
 
 export function Header() {
   return (
-    <header className="flex w-full max-w-7xl h-[100px] justify-between items-center px-4 mx-auto">
+    <header className="flex w-full max-w-7xl h-[100px] justify-between items-center bg-white max-sm:fixed  mx-auto px-4 max-sm:mt-[-100px]">
       <div className="flex items-center gap-1">
         <img className="h-[60px]" src={logoImg} alt="" />
         <h1 className="font-bold text-2xl text-gray">PETSHOP</h1>

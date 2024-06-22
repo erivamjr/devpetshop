@@ -7,7 +7,7 @@ export function About() {
         Sobre<span className="text-green ml-2">Nós</span>
       </h1>
 
-      <div className=" flex flex-col px-8 gap-4 sm:flex-row-reverse">
+      <div className=" flex flex-col px-8 gap-4 sm:flex-row-reverse items-center">
         <img className="max-w-[461px]" src={imgCat} alt="" />
         <div className="flex flex-col mb-8 gap-4 text-gray max-w-[466px]">
           <p>Bem-vindo ao Dev Pet Shop!</p>
@@ -20,7 +20,7 @@ export function About() {
         </div>
       </div>
 
-      <div className=" flex flex-col px-8 gap-4 sm:mt-10 sm:flex-row sm:items-center">
+      <div className=" flex flex-col px-8 gap-4 sm:mt-10 sm:flex-row items-center">
         <img className="max-w-[463px]" src={imgStoreDog} alt="" />
 
         <p className=" text-gray mb-8 max-w-[466px]">

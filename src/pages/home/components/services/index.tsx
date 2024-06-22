@@ -3,11 +3,11 @@ import imgFood from "../../../../assets/dog-food.jpg";
 import imgVacine from "../../../../assets/vacine.jpeg";
 export function Services() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mx-auto">
       <h1 className="flex  justify-center items-center text-5xl mt-4 text-gray sm:font-bold">
         Nossos<span className="text-blue ml-2">Serviços</span>
       </h1>
-      <div className="sm:flex sm:flex-row sm:gap-4 justify-center items-center">
+      <div className="sm:flex sm:flex-row sm:flex-wrap sm:gap-4 justify-center items-center sm:m-auto">
         <section className="flex flex-col mt-10 justify-center items-center max-w-[300px]">
           <div className="w-[300px] h-[300px]">
             <img
