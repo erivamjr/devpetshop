@@ -9,7 +9,7 @@ import {
 export function Footer() {
   return (
     <div className="bg-gray text-white p-8">
-      <div>
+      <div className="sm:flex  sm:flex-row sm:justify-between sm:items-baseline max-w-7xl  m-auto">
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-2xl mb-2">Informações de Contato</h3>
           <p>Rua dos Animais, 123, Bairro Pet, Cidade Felina, Estado BR</p>
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="flex gap-4 justify-center mb-8">
+      <div className="flex gap-4 justify-center mb-8 sm:my-8">
         <InstagramLogo size={38} />
         <FacebookLogo size={38} />
         <XLogo size={38} />
