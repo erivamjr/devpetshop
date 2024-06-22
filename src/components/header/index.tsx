@@ -9,7 +9,7 @@ export function Header() {
         <img className="h-[60px]" src={logoImg} alt="" />
         <h1 className="font-bold text-2xl text-gray">PETSHOP</h1>
       </div>
-      <ul className="hidden sm:flex gap-1 text-gray font-bold  ">
+      <ul className="hidden sm:flex gap-4 text-gray font-bold  ">
         <li>HOME</li>
         <li>SOBRE</li>
         <li>SERVIÇOS</li>
