@@ -2,7 +2,7 @@ import { Heart, Trash } from "@phosphor-icons/react";
 
 export function Cart() {
   return (
-    <div className="flex flex-col items-center max-sm:mt-[100px]">
+    <div className="flex flex-col items-center max-sm:mt-[100px] h-[80vh]">
       <h1 className="font-bold text-2xl text-gray">Carrinho de Compras</h1>
       <div className="flex m-10 p-4 items-center gap-4 justify-around flex-wrap border-b-2 border-gray">
         <div className="p-4">
