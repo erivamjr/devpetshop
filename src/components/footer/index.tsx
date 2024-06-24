@@ -8,7 +8,7 @@ import {
 
 export function Footer() {
   return (
-    <div className="bg-gray text-white p-8">
+    <div className="bg-gray text-white p-8 fixed bottom-0 w-full">
       <div className="sm:flex  sm:flex-row sm:justify-between sm:items-baseline max-w-7xl  m-auto">
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-2xl mb-2">Informações de Contato</h3>
