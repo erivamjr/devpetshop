@@ -8,8 +8,8 @@ import {
 
 export function Footer() {
   return (
-    <div className="bg-gray text-white p-8 w-full">
-      <div className="flex  sm:flex-row sm:justify-between sm:items-baseline max-w-7xl  m-auto">
+    <div className="bg-gray text-white p-8 w-full bottom-0">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline max-w-7xl  m-auto">
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-2xl mb-2">Informações de Contato</h3>
           <p>Rua dos Animais, 123, Bairro Pet, Cidade Felina, Estado BR</p>
