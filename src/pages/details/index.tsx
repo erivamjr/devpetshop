@@ -12,7 +12,7 @@ export function Details() {
         src="https://via.placeholder.com/150"
         alt="Product"
       />
-      <p className="text-gray mx-2 sm:mx-14">
+      <p className="text-gray mx-2 sm:mx-20">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
         velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate
         commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed
