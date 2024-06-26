@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/logo.svg";
 import { Handbag, Heart, MagnifyingGlass } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductsContext";
 
 export function Header() {
+  const { cart } = useContext(ProductContext);
   return (
     <header className="flex w-full max-w-7xl h-[100px] justify-between items-center bg-white max-sm:fixed  mx-auto px-4 max-sm:mt-[-100px]">
       <div className="flex items-center gap-1">
@@ -22,9 +25,18 @@ export function Header() {
         <Link to="/favorites">
           <Heart size={28} />
         </Link>
-        <Link to="/cart">
-          <Handbag size={28} />
-        </Link>
+        {cart.length > 0 ? (
+          <Link to="/cart">
+            <Handbag size={28} className="absolute" />
+            <span className="bg-orange text-white rounded-full h-6 w-6 flex justify-center items-center relative left-4 bottom-2">
+              {cart.length}
+            </span>
+          </Link>
+        ) : (
+          <Link to="/cart">
+            <Handbag size={28} />
+          </Link>
+        )}
       </nav>
     </header>
   );
