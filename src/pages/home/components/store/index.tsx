@@ -1,6 +1,11 @@
 import { Handbag, Heart } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { ProductContext } from "../../../../context/ProductsContext";
+import { parseCurrency } from "../../../../utils/utils";
 
 export function Store() {
+  const { products } = useContext(ProductContext);
+
   return (
     <section className="bg-dogFootprint bg-cover flex items-center flex-col  max-w-7xl mx-auto">
       <h1 className=" text-5xl pt-4 text-gray flex justify-center items-center  mb-10 sm:font-bold">
@@ -8,77 +13,30 @@ export function Store() {
       </h1>
 
       <div className="sm:flex sm:flex-row sm:gap-4 sm:flex-wrap justify-center items-center">
-        <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
-          <img
-            className="object-cover w-250 h-300"
-            src="https://images.petz.com.br/fotos/1666882957839.jpg"
-            alt="Ração pedigree adulto"
-          />
-          <h1 className="text-center text-gray">Ração Pedigree Nutrição</h1>
-          <p className="text-center text-gray font-bold my-2">R$ 89,90</p>
-          <div className="flex justify-center gap-8 text-gray">
-            <button>
-              <Heart size={28} />
-            </button>
-            <button>
-              <Handbag size={28} />
-            </button>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4"
+          >
+            <img
+              className="object-cover w-250 h-300"
+              src={product.cover}
+              alt="Ração pedigree adulto"
+            />
+            <h1 className="text-center text-gray">{product.title}</h1>
+            <p className="text-center text-gray font-bold my-2">
+              {parseCurrency(product.price)}
+            </p>
+            <div className="flex justify-center gap-8 text-gray">
+              <button>
+                <Heart size={28} />
+              </button>
+              <button>
+                <Handbag size={28} />
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
-          <img
-            className="object-cover w-250 h-300"
-            src="https://images.petz.com.br/fotos/1666882957839.jpg"
-            alt="Ração pedigree adulto"
-          />
-          <h1 className="text-center text-gray">Ração Pedigree Nutrição</h1>
-          <p className="text-center text-gray font-bold my-2">R$ 89,90</p>
-          <div className="flex justify-center gap-6 text-gray">
-            <button>
-              <Heart size={28} />
-            </button>
-            <button>
-              <Handbag size={28} />
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
-          <img
-            className="object-cover w-250 h-300"
-            src="https://images.petz.com.br/fotos/1666882957839.jpg"
-            alt="Ração pedigree adulto"
-          />
-          <h1 className="text-center text-gray">Ração Pedigree Nutrição</h1>
-          <p className="text-center text-gray font-bold my-2">R$ 89,90</p>
-          <div className="flex justify-center gap-6 text-gray">
-            <button>
-              <Heart size={28} />
-            </button>
-            <button>
-              <Handbag size={28} />
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
-          <img
-            className="object-cover w-250 h-300"
-            src="https://images.petz.com.br/fotos/1666882957839.jpg"
-            alt="Ração pedigree adulto"
-          />
-          <h1 className="text-center text-gray">Ração Pedigree Nutrição</h1>
-          <p className="text-center text-gray font-bold my-2">R$ 89,90</p>
-          <div className="flex justify-center gap-6 text-gray">
-            <button>
-              <Heart size={28} />
-            </button>
-            <button>
-              <Handbag size={28} />
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
