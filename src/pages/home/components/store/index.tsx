@@ -4,7 +4,7 @@ import { ProductContext } from "../../../../context/ProductsContext";
 import { parseCurrency } from "../../../../utils/utils";
 
 export function Store() {
-  const { products } = useContext(ProductContext);
+  const { products, addProductToCart } = useContext(ProductContext);
 
   return (
     <section className="bg-dogFootprint bg-cover flex items-center flex-col  max-w-7xl mx-auto">
@@ -31,7 +31,7 @@ export function Store() {
               <button>
                 <Heart size={28} />
               </button>
-              <button>
+              <button type="button" onClick={() => addProductToCart(product)}>
                 <Handbag size={28} />
               </button>
             </div>
