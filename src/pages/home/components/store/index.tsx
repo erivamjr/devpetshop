@@ -2,6 +2,7 @@ import { Handbag, Heart } from "@phosphor-icons/react";
 import { useContext } from "react";
 import { ProductContext } from "../../../../context/ProductsContext";
 import { parseCurrency } from "../../../../utils/utils";
+import { Link } from "react-router-dom";
 
 export function Store() {
   const { products, addProductToCart } = useContext(ProductContext);
@@ -14,28 +15,27 @@ export function Store() {
 
       <div className="sm:flex sm:flex-row sm:gap-4 sm:flex-wrap justify-center items-center">
         {products.map((product) => (
-          <div
-            key={product.id}
-            className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4"
-          >
-            <img
-              className="object-cover w-250 h-300"
-              src={product.cover}
-              alt="Ração pedigree adulto"
-            />
-            <h1 className="text-center text-gray">{product.title}</h1>
-            <p className="text-center text-gray font-bold my-2">
-              {parseCurrency(product.price)}
-            </p>
-            <div className="flex justify-center gap-8 text-gray">
-              <button>
-                <Heart size={28} />
-              </button>
-              <button type="button" onClick={() => addProductToCart(product)}>
-                <Handbag size={28} />
-              </button>
+          <Link to={`/details/${product.id}`} key={product.id}>
+            <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
+              <img
+                className="object-cover w-250 h-300"
+                src={product.cover}
+                alt="Ração pedigree adulto"
+              />
+              <h1 className="text-center text-gray">{product.title}</h1>
+              <p className="text-center text-gray font-bold my-2">
+                {parseCurrency(product.price)}
+              </p>
+              <div className="flex justify-center gap-8 text-gray">
+                <button>
+                  <Heart size={28} />
+                </button>
+                <button type="button" onClick={() => addProductToCart(product)}>
+                  <Handbag size={28} />
+                </button>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

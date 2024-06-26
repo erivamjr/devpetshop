@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { getProducts } from "../api/api";
 
-interface ProductProps {
+export interface ProductProps {
   id: number;
   title: string;
   description: string;

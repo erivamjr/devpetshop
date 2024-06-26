@@ -1,25 +1,34 @@
 import { Heart } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
+import { parseCurrency } from "../../utils/utils";
+import { getProductById } from "../../api/api";
+import { useEffect, useState } from "react";
+import { ProductProps } from "../../context/ProductsContext";
 
 export function Details() {
   const { id } = useParams<{ id: string }>();
+  const [product, setProduct] = useState<ProductProps | null>(null);
+
+  useEffect(() => {
+    getProductById(Number(id)).then((product) => setProduct(product));
+  }, [id]);
+
   return (
-    <div className="flex items-center min-h-[60vh] flex-col max-w-7xl mx-auto max-sm:mt-[100px]">
-      <h2 className="text-gray font-bold text-2xl">Product Title {id}</h2>
+    <section className="flex items-center min-h-[60vh] flex-col max-w-7xl mx-auto max-sm:mt-[100px]">
+      <h2 className="text-gray font-bold text-2xl text-center">
+        {product?.title}
+      </h2>
 
       <img
         className="h-48 w-48 object-cover rounded-full my-4"
-        src="https://via.placeholder.com/150"
-        alt="Product"
+        src={product?.cover}
+        alt={product?.title}
       />
-      <p className="text-gray mx-2 sm:mx-20">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
-        velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate
-        commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed
-        eleifend tristique, tortor mauris a dolor.{" "}
-      </p>
+      <p className="text-gray mx-2 sm:mx-20">{product?.description}</p>
       <div className="flex justify-center items-center gap-4">
-        <p className="text-gray">Preço: R$ 9.99</p>
+        <p className="text-gray">
+          {product?.price && parseCurrency(product.price)}
+        </p>
         <button className="text-gray h-10 w-10">
           <Heart size={32} weight="fill" />
         </button>
@@ -27,6 +36,6 @@ export function Details() {
           Comprar
         </button>
       </div>
-    </div>
+    </section>
   );
 }
