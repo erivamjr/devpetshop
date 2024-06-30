@@ -43,12 +43,11 @@ export function ProductProvider({ children }: ProductProviderProps) {
           : item
       );
       setCart(newCart);
-      console.log("Carrinho de compras", cart);
+
       return;
     }
 
     setCart([...cart, { ...product, quantity: 1 }]);
-    console.log("Carrinho de compras", cart);
   }
 
   function minusProductFromCart(productId: number) {
@@ -67,6 +66,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
     const newCart = products.map((item) =>
       item.id === productId ? { ...item, isFavorite: !item.isFavorite } : item
     );
+
     setProducts(newCart);
   }
 

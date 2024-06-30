@@ -1,18 +1,17 @@
 import { Heart } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
 import { parseCurrency } from "../../utils/utils";
-import { getProductById } from "../../api/api";
-import { useContext, useEffect, useState } from "react";
-import { ProductContext, ProductProps } from "../../context/ProductsContext";
+
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductsContext";
 
 export function Details() {
   const { id } = useParams<{ id: string }>();
   const { isFavorite, products } = useContext(ProductContext);
-  const [product, setProduct] = useState<ProductProps>();
 
-  useEffect(() => {
-    getProductById(Number(id)).then((data) => setProduct(data));
-  }, [id]);
+  const product = products.find((product) => Number(product.id) === Number(id));
+
+  if (!product) return <h1>Carregando...</h1>;
 
   return (
     <section className="flex items-center min-h-[60vh] flex-col max-w-7xl mx-auto max-sm:mt-[100px]">
@@ -33,7 +32,7 @@ export function Details() {
         <button
           className="text-gray h-10 w-10"
           type="button"
-          onClick={() => isFavorite(Number(id))}
+          onClick={() => isFavorite(product.id)}
         >
           {product?.isFavorite ? (
             <Heart size={28} className="text-red" weight="fill" />
