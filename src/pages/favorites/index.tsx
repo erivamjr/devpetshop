@@ -1,100 +1,61 @@
-import { Heart } from "@phosphor-icons/react";
+import { Handbag, Heart } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductsContext";
 
 export function Favorites() {
+  const { products, isFavorite, cart, addProductToCart } =
+    useContext(ProductContext);
   return (
     <div className="flex flex-col  items-center min-h-[55vh]  max-w-7xl mx-auto max-sm:mt-[100px]">
       <h1 className="mx-auto text-gray font-bold text-2xl my-6">Favoritos</h1>
 
       <div className="flex flex-wrap justify-center  mb-10">
-        <div className="flex flex-col items-center m-4">
-          <img
-            className="h-48 w-48 object-cover rounded-full"
-            src="https://via.placeholder.com/150"
-            alt="Product"
-          />
-          <h2 className="text-gray font-bold text-2xl">Product Title</h2>
-          <p className="text-gray">Preço: R$ 9.99</p>
-          <div className="flex justify-center items-center gap-4">
-            <button className="text-gray h-10 w-10">
-              <Heart size={32} weight="fill" />
-            </button>
-            <button className="bg-green text-white p-2 rounded-lg my-4">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center m-4">
-          <img
-            className="h-48 w-48 object-cover rounded-full"
-            src="https://via.placeholder.com/150"
-            alt="Product"
-          />
-          <h2 className="text-gray font-bold text-2xl">Product Title</h2>
-          <p className="text-gray">Preço: R$ 9.99</p>
-          <div className="flex justify-center items-center gap-4">
-            <button className="text-gray h-10 w-10">
-              <Heart size={32} weight="fill" />
-            </button>
-            <button className="bg-green text-white p-2 rounded-lg my-4">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center m-4">
-          <img
-            className="h-48 w-48 object-cover rounded-full"
-            src="https://via.placeholder.com/150"
-            alt="Product"
-          />
-          <h2 className="text-gray font-bold text-2xl">Product Title</h2>
-          <p className="text-gray">Preço: R$ 9.99</p>
-          <div className="flex fleco justify-center items-center gap-4">
-            <button className="text-gray h-10 w-10">
-              <Heart size={32} weight="fill" />
-            </button>
-            <button className="bg-green text-white p-2 rounded-lg my-4">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center m-4">
-          <img
-            className="h-48 w-48 object-cover rounded-full"
-            src="https://via.placeholder.com/150"
-            alt="Product"
-          />
-          <h2 className="text-gray font-bold text-2xl">Product Title</h2>
-          <p className="text-gray">Preço: R$ 9.99</p>
-          <div className="flex fleco justify-center items-center gap-4">
-            <button className="text-gray h-10 w-10">
-              <Heart size={32} weight="fill" />
-            </button>
-            <button className="bg-green text-white p-2 rounded-lg my-4">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center m-4">
-          <img
-            className="h-48 w-48 object-cover rounded-full"
-            src="https://via.placeholder.com/150"
-            alt="Product"
-          />
-          <h2 className="text-gray font-bold text-2xl">Product Title</h2>
-          <p className="text-gray">Preço: R$ 9.99</p>
-          <div className="flex fleco justify-center items-center gap-4">
-            <button className="text-gray h-10 w-10">
-              <Heart size={32} weight="fill" />
-            </button>
-            <button className="bg-green text-white p-2 rounded-lg my-4">
-              Comprar
-            </button>
-          </div>
-        </div>
+        {products.filter((product) => product.isFavorite).length === 0 ? (
+          <h1 className="text-gray font-bold text-xl mt-10 text-center">
+            Nenhum produto favoritado... &#128532;
+            <br /> Adicione produtos aos favoritos na seção de produtos!
+            <br />
+          </h1>
+        ) : (
+          products
+            .filter((product) => product.isFavorite)
+            .map((product) => (
+              <div key={product.id} className="flex flex-col items-center m-4">
+                <img
+                  className="h-48 w-48 object-cover rounded-full"
+                  src={product.cover}
+                  alt={product.title}
+                />
+                <h2 className="text-gray font-bold text-2xl text-center">
+                  {product.title}
+                </h2>
+                <p className="text-gray">Preço: {product.price}</p>
+                <div className="flex fleco justify-center items-center gap-4">
+                  <button
+                    className="text-gray h-10 w-10"
+                    type="button"
+                    onClick={() => isFavorite(product.id)}
+                  >
+                    <Heart size={32} weight="fill" className="text-red" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => addProductToCart(product)}
+                  >
+                    {cart.find((item) => item.id === product.id) ? (
+                      <Handbag
+                        size={28}
+                        className="text-orange"
+                        weight="fill"
+                      />
+                    ) : (
+                      <Handbag size={28} className="text-gray" />
+                    )}
+                  </button>
+                </div>
+              </div>
+            ))
+        )}
       </div>
     </div>
   );

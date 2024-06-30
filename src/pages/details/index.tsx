@@ -2,15 +2,16 @@ import { Heart } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
 import { parseCurrency } from "../../utils/utils";
 import { getProductById } from "../../api/api";
-import { useEffect, useState } from "react";
-import { ProductProps } from "../../context/ProductsContext";
+import { useContext, useEffect, useState } from "react";
+import { ProductContext, ProductProps } from "../../context/ProductsContext";
 
 export function Details() {
   const { id } = useParams<{ id: string }>();
-  const [product, setProduct] = useState<ProductProps | null>(null);
+  const { isFavorite, products } = useContext(ProductContext);
+  const [product, setProduct] = useState<ProductProps>();
 
   useEffect(() => {
-    getProductById(Number(id)).then((product) => setProduct(product));
+    getProductById(Number(id)).then((data) => setProduct(data));
   }, [id]);
 
   return (
@@ -29,8 +30,16 @@ export function Details() {
         <p className="text-gray">
           {product?.price && parseCurrency(product.price)}
         </p>
-        <button className="text-gray h-10 w-10">
-          <Heart size={32} weight="fill" />
+        <button
+          className="text-gray h-10 w-10"
+          type="button"
+          onClick={() => isFavorite(Number(id))}
+        >
+          {product?.isFavorite ? (
+            <Heart size={28} className="text-red" weight="fill" />
+          ) : (
+            <Heart size={28} />
+          )}
         </button>
         <button className="bg-green text-white p-2 rounded-lg my-4">
           Comprar

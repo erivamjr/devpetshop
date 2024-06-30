@@ -5,7 +5,8 @@ import { parseCurrency } from "../../../../utils/utils";
 import { Link } from "react-router-dom";
 
 export function Store() {
-  const { products, addProductToCart } = useContext(ProductContext);
+  const { products, addProductToCart, isFavorite, cart } =
+    useContext(ProductContext);
 
   return (
     <section className="bg-dogFootprint bg-cover flex items-center flex-col  max-w-7xl mx-auto">
@@ -15,8 +16,11 @@ export function Store() {
 
       <div className="sm:flex sm:flex-row sm:gap-4 sm:flex-wrap justify-center items-center">
         {products.map((product) => (
-          <Link to={`/details/${product.id}`} key={product.id}>
-            <div className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4">
+          <div
+            key={product.id}
+            className="flex flex-col bg-white rounded-lg mb-10 shadow-md w-[270px] p-4"
+          >
+            <Link to={`/details/${product.id}`}>
               <img
                 className="object-cover w-250 h-300"
                 src={product.cover}
@@ -26,16 +30,24 @@ export function Store() {
               <p className="text-center text-gray font-bold my-2">
                 {parseCurrency(product.price)}
               </p>
-              <div className="flex justify-center gap-8 text-gray">
-                <button>
+            </Link>
+            <div className="flex justify-center gap-8 text-gray">
+              <button type="button" onClick={() => isFavorite(product.id)}>
+                {product.isFavorite ? (
+                  <Heart size={28} className="text-red" weight="fill" />
+                ) : (
                   <Heart size={28} />
-                </button>
-                <button type="button" onClick={() => addProductToCart(product)}>
+                )}
+              </button>
+              <button type="button" onClick={() => addProductToCart(product)}>
+                {cart.find((item) => item.id === product.id) ? (
+                  <Handbag size={28} className="text-orange" weight="fill" />
+                ) : (
                   <Handbag size={28} />
-                </button>
-              </div>
+                )}
+              </button>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>

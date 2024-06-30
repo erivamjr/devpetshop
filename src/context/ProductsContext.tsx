@@ -8,6 +8,7 @@ export interface ProductProps {
   price: number;
   cover: string;
   quantity?: number;
+  isFavorite?: boolean;
 }
 interface ProductContextData {
   products: ProductProps[];
@@ -15,6 +16,7 @@ interface ProductContextData {
   addProductToCart: (product: ProductProps) => void;
   minusProductFromCart: (productId: number) => void;
   removeProductFromCart: (productId: number) => void;
+  isFavorite: (productId: number) => void;
 }
 
 interface ProductProviderProps {
@@ -32,10 +34,8 @@ export function ProductProvider({ children }: ProductProviderProps) {
   }, []);
 
   function addProductToCart(product: ProductProps) {
-    // Verifica se o produto já está no carrinho
     const productInCart = cart.find((item) => item.id === product.id);
 
-    // Se o produto já estiver no carrinho, incrementa a quantidade
     if (productInCart) {
       const newCart = cart.map((item) =>
         item.id === product.id
@@ -63,6 +63,13 @@ export function ProductProvider({ children }: ProductProviderProps) {
     setCart(newCart);
   }
 
+  function isFavorite(productId: number) {
+    const newCart = products.map((item) =>
+      item.id === productId ? { ...item, isFavorite: !item.isFavorite } : item
+    );
+    setProducts(newCart);
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -71,6 +78,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
         minusProductFromCart,
         removeProductFromCart,
         cart,
+        isFavorite,
       }}
     >
       {children}
