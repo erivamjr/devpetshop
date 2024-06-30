@@ -5,7 +5,9 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 
 export function Header() {
-  const { cart } = useContext(ProductContext);
+  const { cart, products } = useContext(ProductContext);
+
+  const isFavorite = products.find((product) => product.isFavorite);
   return (
     <header className="flex w-full max-w-7xl h-[100px] justify-between items-center bg-white max-sm:fixed  mx-auto px-4 max-sm:mt-[-100px]">
       <Link className="flex items-center gap-1" to="/">
@@ -23,7 +25,11 @@ export function Header() {
           <MagnifyingGlass size={28} />
         </Link>
         <Link to="/favorites">
-          <Heart size={28} />
+          {isFavorite ? (
+            <Heart size={28} className="text-red" weight="fill" />
+          ) : (
+            <Heart size={28} />
+          )}
         </Link>
         {cart.length > 0 ? (
           <Link to="/cart">
