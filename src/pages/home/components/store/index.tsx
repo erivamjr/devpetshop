@@ -9,7 +9,10 @@ export function Store() {
     useContext(ProductContext);
 
   return (
-    <section className="bg-dogFootprint bg-cover flex items-center flex-col  max-w-7xl mx-auto">
+    <section
+      id="store"
+      className="bg-dogFootprint bg-cover flex items-center flex-col  max-w-7xl mx-auto"
+    >
       <h1 className=" text-5xl pt-4 text-gray flex justify-center items-center  mb-10 sm:font-bold">
         Nossa<span className="text-orange ml-2">Loja</span>
       </h1>

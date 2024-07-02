@@ -3,7 +3,10 @@ import imgFood from "../../../../assets/dog-food.jpg";
 import imgVacine from "../../../../assets/vacine.jpeg";
 export function Services() {
   return (
-    <div className="flex flex-col items-center justify-center mx-auto">
+    <div
+      id="services"
+      className="flex flex-col items-center justify-center mx-auto"
+    >
       <h1 className="flex  justify-center items-center text-5xl mt-4 text-gray sm:font-bold">
         Nossos<span className="text-blue ml-2">Serviços</span>
       </h1>

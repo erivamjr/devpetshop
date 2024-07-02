@@ -15,10 +15,18 @@ export function Header() {
         <h1 className="font-bold text-2xl text-gray">PETSHOP</h1>
       </Link>
       <ul className="hidden sm:flex gap-4 text-gray font-bold  ">
-        <li>HOME</li>
-        <li>SOBRE</li>
-        <li>SERVIÇOS</li>
-        <li>LOJA</li>
+        <li>
+          <a href="#home">HOME</a>
+        </li>
+        <li>
+          <a href="#services">SERVIÇOS</a>
+        </li>
+        <li>
+          <a href="#store">LOJA</a>
+        </li>
+        <li>
+          <a href="#about">SOBRE</a>
+        </li>
       </ul>
       <nav className="flex gap-2 text-gray">
         <Link to="/">

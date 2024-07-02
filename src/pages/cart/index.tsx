@@ -16,7 +16,11 @@ export function Cart() {
     return (
       <div className="flex flex-col items-center max-sm:mt-[100px] min-h-[80vh]">
         <h1 className="font-bold text-2xl text-gray">Carrinho de Compras</h1>
-        <h2 className="font-bold text-2xl text-gray">Carrinho Vazio</h2>
+        <h1 className="text-gray font-bold text-xl mt-10 text-center">
+          Nenhum produto adicionado... &#128532;
+          <br /> Adicione produtos no carrinho na seção de produtos!
+          <br />
+        </h1>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import imgCat from "../../../../assets/cat.png";
 import imgStoreDog from "../../../../assets/store-dog.png";
 export function About() {
   return (
-    <section className="mx-auto sm:mb-10 max-w-7xl">
+    <section id="about" className="mx-auto sm:mb-10 max-w-7xl">
       <h1 className=" text-5xl my-6 text-gray flex justify-center items-center sm:font-bold">
         Sobre<span className="text-green ml-2">Nós</span>
       </h1>
