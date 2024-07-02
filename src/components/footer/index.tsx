@@ -55,6 +55,11 @@ export function Footer() {
       <p className="text-center">
         © 2024 Dev Pet Shop. Todos os direitos reservados.
       </p>
+      <p className="text-center text-sm">
+        <a href="https://www.linkedin.com/in/erivamjr/" target="_blank">
+          Desenvolvido por José Erivam
+        </a>
+      </p>
     </div>
   );
 }

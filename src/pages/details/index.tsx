@@ -15,7 +15,7 @@ export function Details() {
   if (!product) return <h1>Carregando...</h1>;
 
   return (
-    <section className="flex items-center min-h-[60vh] flex-col max-w-7xl mx-auto max-sm:mt-[100px]">
+    <section className="flex items-center justify-center min-h-[80vh] flex-col max-w-4xl mx-auto max-sm:mt-[100px] shadow-xl mb-4">
       <h2 className="text-gray font-bold text-2xl text-center">
         {product?.title}
       </h2>

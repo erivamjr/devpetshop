@@ -16,7 +16,7 @@ export function Header() {
       </Link>
       <ul className="hidden sm:flex gap-4 text-gray font-bold  ">
         <li>
-          <a href="#home">HOME</a>
+          <Link to="/">HOME</Link>
         </li>
         <li>
           <a href="#services">SERVIÇOS</a>

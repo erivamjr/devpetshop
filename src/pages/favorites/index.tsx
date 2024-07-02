@@ -20,7 +20,10 @@ export function Favorites() {
           products
             .filter((product) => product.isFavorite)
             .map((product) => (
-              <div key={product.id} className="flex flex-col items-center m-4">
+              <div
+                key={product.id}
+                className="flex flex-col items-center m-4 max-w-[300px] min-h-[370px]  rounded-xl  shadow-lg"
+              >
                 <img
                   className="h-48 w-48 object-cover rounded-full"
                   src={product.cover}
