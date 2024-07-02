@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        dogFootprint: "url('./src/assets/dogFootprint.png')",
+        dogFootprint: "url('./public/dogFootprint.png')",
       },
     },
     colors: {
