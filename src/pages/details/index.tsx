@@ -1,4 +1,4 @@
-import { Heart } from "@phosphor-icons/react";
+import { Handbag, Heart } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
 import { parseCurrency } from "../../utils/utils";
 
@@ -7,7 +7,8 @@ import { ProductContext } from "../../context/ProductsContext";
 
 export function Details() {
   const { id } = useParams<{ id: string }>();
-  const { isFavorite, products } = useContext(ProductContext);
+  const { isFavorite, products, cart, addProductToCart } =
+    useContext(ProductContext);
 
   const product = products.find((product) => Number(product.id) === Number(id));
 
@@ -25,8 +26,8 @@ export function Details() {
         alt={product?.title}
       />
       <p className="text-gray mx-2 sm:mx-20">{product?.description}</p>
-      <div className="flex justify-center items-center gap-4">
-        <p className="text-gray">
+      <div className="flex justify-center items-center gap-4 border-blue border-2 mt-4 rounded-lg p-2">
+        <p className="text-gray text-2xl font-bold">
           {product?.price && parseCurrency(product.price)}
         </p>
         <button
@@ -40,8 +41,13 @@ export function Details() {
             <Heart size={28} />
           )}
         </button>
-        <button className="bg-green text-white p-2 rounded-lg my-4">
-          Comprar
+
+        <button type="button" onClick={() => addProductToCart(product)}>
+          {cart.find((item) => item.id === product.id) ? (
+            <Handbag size={28} className="text-orange" weight="fill" />
+          ) : (
+            <Handbag size={28} className="text-gray my-4" />
+          )}
         </button>
       </div>
     </section>

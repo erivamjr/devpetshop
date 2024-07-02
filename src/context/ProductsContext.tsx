@@ -42,6 +42,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
           ? { ...item, quantity: item.quantity! + 1 }
           : item
       );
+
       setCart(newCart);
 
       return;
@@ -52,7 +53,9 @@ export function ProductProvider({ children }: ProductProviderProps) {
 
   function minusProductFromCart(productId: number) {
     const newCart = cart.map((item) =>
-      item.id === productId ? { ...item, quantity: item.quantity! - 1 } : item
+      item.id === productId
+        ? { ...item, quantity: item.quantity === 1 ? 1 : item.quantity! - 1 }
+        : item
     );
     setCart(newCart);
   }
@@ -66,6 +69,12 @@ export function ProductProvider({ children }: ProductProviderProps) {
     const newCart = products.map((item) =>
       item.id === productId ? { ...item, isFavorite: !item.isFavorite } : item
     );
+
+    const newCartCart = cart.map((item) =>
+      item.id === productId ? { ...item, isFavorite: !item.isFavorite } : item
+    );
+
+    setCart(newCartCart);
 
     setProducts(newCart);
   }
