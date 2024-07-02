@@ -2,15 +2,23 @@ import { Heart, Trash } from "@phosphor-icons/react";
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 import { parseCurrency, sumCart } from "../../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 export function Cart() {
   const {
     cart,
+    toCleanCart,
     minusProductFromCart,
     addProductToCart,
     isFavorite,
     removeProductFromCart,
   } = useContext(ProductContext);
+  const navigate = useNavigate();
+
+  function toCleanCartNav() {
+    toCleanCart();
+    navigate("/");
+  }
 
   if (cart.length === 0) {
     return (
@@ -95,7 +103,7 @@ export function Cart() {
         </h2>
         <button
           className="bg-greenDark text-white p-4 rounded-lg my-4"
-          onClick={() => alert("Compra Finalizada!")}
+          onClick={toCleanCartNav}
         >
           Finalizar Compra
         </button>

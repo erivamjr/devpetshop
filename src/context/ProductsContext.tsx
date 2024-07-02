@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { getProducts } from "../api/api";
 
 export interface ProductProps {
@@ -17,10 +17,11 @@ interface ProductContextData {
   minusProductFromCart: (productId: number) => void;
   removeProductFromCart: (productId: number) => void;
   isFavorite: (productId: number) => void;
+  toCleanCart: () => void;
 }
 
 interface ProductProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const ProductContext = createContext({} as ProductContextData);
@@ -79,6 +80,11 @@ export function ProductProvider({ children }: ProductProviderProps) {
     setProducts(newCart);
   }
 
+  function toCleanCart() {
+    alert("Compra realizada com sucesso!");
+    setCart([]);
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -88,6 +94,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
         removeProductFromCart,
         cart,
         isFavorite,
+        toCleanCart,
       }}
     >
       {children}
