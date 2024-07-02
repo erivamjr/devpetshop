@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export async function getProducts() {
-  const URL = "http://localhost:3000/products";
-
-  const products = await axios.get(URL);
-
-  return products.data;
+  const API_URL =
+    "http://localhost:3000/products" || process.env.REACT_APP_API_URL;
+  const response = await axios.get(API_URL);
+  return response.data;
 }
 
 export async function getProductById(id: number) {

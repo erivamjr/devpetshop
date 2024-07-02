@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
-import { getProducts } from "../api/api";
+//import { getProducts } from "../api/api";
+import { products as mockProducts } from "../api/vercel.json";
 
 export interface ProductProps {
   id: number;
@@ -31,7 +32,8 @@ export function ProductProvider({ children }: ProductProviderProps) {
   const [cart, setCart] = useState<ProductProps[]>([]);
 
   useEffect(() => {
-    getProducts().then((data) => setProducts(data));
+    //getProducts().then((data) => setProducts(data));
+    setProducts(mockProducts);
   }, []);
 
   function addProductToCart(product: ProductProps) {
