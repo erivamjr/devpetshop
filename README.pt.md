@@ -8,7 +8,7 @@ Site de um PetShop, para divulgar a loja. Na loja você tem a função de favori
 
 ## Layout 🎨
 
-![Site](src/assets/devpetshop.png)
+![Site](src/assets/README/devpetshopdark.png)
 
 ## Funcionalidades Principais ✨
 
