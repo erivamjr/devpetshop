@@ -7,8 +7,9 @@ export function Services() {
       id="services"
       className="flex flex-col items-center justify-center mx-auto mt-4"
     >
-      <h1 className="flex  justify-center items-center text-5xl mt-4 text-gray sm:font-bold">
-        Noss<span className="text-blue ml-2">Serviços</span>
+      <h1 className="flex flex-wrap justify-center items-center text-5xl mt-4 text-gray sm:font-bold">
+        <span>Nossos</span>
+        <span className="text-blue  sm:ml-4">Serviços</span>
       </h1>
       <div className="sm:flex sm:flex-row sm:flex-wrap sm:gap-4 justify-center items-center sm:m-auto">
         <section className="flex flex-col mt-10 justify-center items-center max-w-[300px]">
