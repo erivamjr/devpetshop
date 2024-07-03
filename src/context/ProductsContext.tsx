@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 //import { getProducts } from "../api/api";
 import { products as mockProducts } from "../api/vercel.json";
+import toast from "react-hot-toast";
 
 export interface ProductProps {
   id: number;
@@ -37,6 +38,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   }, []);
 
   function addProductToCart(product: ProductProps) {
+    toast.success("Produto adicionado ao carrinho");
     const productInCart = cart.find((item) => item.id === product.id);
 
     if (productInCart) {
@@ -64,6 +66,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   }
 
   function removeProductFromCart(productId: number) {
+    toast.error("Produto removido do carrinho");
     const newCart = cart.filter((item) => item.id !== productId);
     setCart(newCart);
   }
