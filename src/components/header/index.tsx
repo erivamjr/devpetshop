@@ -12,7 +12,12 @@ export function Header() {
     <header className="flex w-full max-w-7xl h-[100px] justify-between items-center bg-white max-sm:fixed  mx-auto px-4 max-sm:mt-[-100px]">
       <Link className="flex items-center gap-1" to="/">
         <img className="h-[60px]" src={logoImg} alt="" />
-        <h1 className="font-bold text-2xl text-gray">PETSHOP</h1>
+        <h1 className="font-bold text-2xl text-gray">
+          PET<span className="text-red">S</span>
+          <span className="text-blue">H</span>
+          <span className="text-orange">O</span>
+          <span className="text-green">P</span>
+        </h1>
       </Link>
       <ul className="hidden sm:flex gap-4 text-gray font-bold  ">
         <li>
