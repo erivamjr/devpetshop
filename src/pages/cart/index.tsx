@@ -1,5 +1,5 @@
 import { Heart, Trash } from "@phosphor-icons/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 import { parseCurrency, sumCart } from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,10 @@ export function Cart() {
     removeProductFromCart,
   } = useContext(ProductContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function toCleanCartNav() {
     toCleanCart();

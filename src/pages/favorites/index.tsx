@@ -1,10 +1,15 @@
 import { Handbag, Heart } from "@phosphor-icons/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 
 export function Favorites() {
   const { products, isFavorite, cart, addProductToCart } =
     useContext(ProductContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="flex flex-col  items-center min-h-[55vh]  max-w-7xl mx-auto max-sm:mt-[100px]">
       <h1 className="mx-auto text-gray font-bold text-2xl my-6">Favoritos</h1>

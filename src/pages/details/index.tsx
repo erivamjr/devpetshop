@@ -2,7 +2,7 @@ import { Handbag, Heart } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
 import { parseCurrency } from "../../utils/utils";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 
 export function Details() {
@@ -11,6 +11,10 @@ export function Details() {
     useContext(ProductContext);
 
   const product = products.find((product) => Number(product.id) === Number(id));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!product) return <h1>Carregando...</h1>;
 
