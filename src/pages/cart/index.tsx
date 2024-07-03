@@ -74,7 +74,7 @@ export function Cart() {
           </div>
           <div className="font-bold text-2xl text-gray">
             <h2>
-              Total:{" "}
+              Subtotal:{" "}
               {product?.price &&
                 product.quantity &&
                 parseCurrency(product.price * product.quantity)}
