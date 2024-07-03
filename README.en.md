@@ -8,7 +8,7 @@ Website for a PetShop to showcase the store. The site includes a landing page fo
 
 ## Layout 🎨
 
-![Website](src/assets/devpetshop.png)
+![Website](src/assets/README/devpetshop.png)
 
 ## Key Features ✨
 
