@@ -1,6 +1,7 @@
 import { Handbag, Heart } from "@phosphor-icons/react";
 import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductsContext";
+import { Link } from "react-router-dom";
 
 export function Favorites() {
   const { products, isFavorite, cart, addProductToCart } =
@@ -29,11 +30,13 @@ export function Favorites() {
                 key={product.id}
                 className="flex flex-col items-center m-4 max-w-[300px] min-h-[370px]  rounded-xl  shadow-lg"
               >
-                <img
-                  className="h-48 w-48 object-cover rounded-full"
-                  src={product.cover}
-                  alt={product.title}
-                />
+                <Link to={`/details/${product.id}`}>
+                  <img
+                    className="h-48 w-48 object-cover rounded-full"
+                    src={product.cover}
+                    alt={product.title}
+                  />
+                </Link>
                 <h2 className="text-gray font-bold text-2xl text-center">
                   {product.title}
                 </h2>
