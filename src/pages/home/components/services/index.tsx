@@ -5,7 +5,7 @@ export function Services() {
   return (
     <div
       id="services"
-      className="flex flex-col items-center justify-center mx-auto"
+      className="flex flex-col items-center justify-center mx-auto mt-6"
     >
       <h1 className="flex  justify-center items-center text-5xl mt-4 text-gray sm:font-bold">
         Nossos<span className="text-blue ml-2">Serviços</span>
