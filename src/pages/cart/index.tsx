@@ -52,10 +52,12 @@ export function Cart() {
             />
           </div>
           <div>
-            <h2 className="font-bold text-2xl text-gray text-center truncate max-w-xs">
+            <h2 className="font-bold text-xl text-gray text-center  max-w-xs mb-4">
               {product.title}
             </h2>
-            <p>Preço: {product?.price && parseCurrency(product.price)}</p>
+            <p className="text-xl text-center">
+              Preço: {product?.price && parseCurrency(product.price)}
+            </p>
           </div>
           <div className="flex gap-4 items-center border-[1px] border-gray py-2 px-4 rounded-lg">
             <button
@@ -72,7 +74,7 @@ export function Cart() {
               +
             </button>
           </div>
-          <div className="font-bold text-2xl text-gray">
+          <div className="font-bold text-xl text-gray">
             <h2>
               Subtotal:{" "}
               {product?.price &&
